@@ -1,6 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Cool Cave Game/Assets/Standard Assets/Characters.meta
 guid: 8c32f58513a41ef4dab9cb7704c5fb92
 folderAsset: yes
+=======
+guid: 7ea1d5bcb59e5ea47b213edb988f670f
+folderAsset: yes
+timeCreated: 1489099726
+licenseType: Free
+>>>>>>> LevelDesign:Cool Cave Game/Assets/Prefabs.meta
 DefaultImporter:
   userData: 
   assetBundleName: 
