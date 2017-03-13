@@ -42,11 +42,17 @@ public class InteractableItem : MonoBehaviour
         _targetColor = Color.black;
         enabled = true;
     }
-
-    private void HitByRay()
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Received a message!");
         _targetColor = GlowColor;
+        enabled = true;
+        Debug.Log("Entereed");
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("BUE");
+        _targetColor = Color.black;
         enabled = true;
     }
 

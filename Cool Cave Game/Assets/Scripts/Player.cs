@@ -21,7 +21,6 @@ public class Player : MonoBehaviour {
             if (hit.transform.tag == "InteractableItem")
             {
                 Debug.Log("There's something infront of the player!");
-                hit.transform.SendMessage("HitByRay");
             }       
         }
 

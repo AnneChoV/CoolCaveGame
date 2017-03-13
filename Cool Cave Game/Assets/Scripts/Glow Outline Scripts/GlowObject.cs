@@ -59,6 +59,7 @@ public class GlowObject : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("BUE");
         _targetColor = Color.black;
         enabled = true;
     }
