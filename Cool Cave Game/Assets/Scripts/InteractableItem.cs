@@ -31,6 +31,8 @@ public class InteractableItem : MonoBehaviour
         }
     }
 
+   
+
     private void OnMouseEnter()
     {
         _targetColor = GlowColor;

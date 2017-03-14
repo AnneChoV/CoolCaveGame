@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Vector3 inFront = transform.TransformDirection(Vector3.forward);
+        //Vector3 inFront = transform.TransformDirection(Vector3.forward);
 
         if (Physics.Raycast(ray, out hit, 1.5f))
         {
