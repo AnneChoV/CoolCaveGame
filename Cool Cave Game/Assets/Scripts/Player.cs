@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public GameObject Wrist;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -24,7 +26,26 @@ public class Player : MonoBehaviour {
             }       
         }
 
-	}
+        if (Input.GetKey(KeyCode.K))
+        {
+            Wrist.transform.Rotate(0, 0, -5.0f);
+        }
+
+        if (Input.GetKey(KeyCode.I))
+        {
+            Wrist.transform.Rotate(0, 0, 5.0f);
+        }
+
+        if (Input.GetKey(KeyCode.J))
+        {
+            Wrist.transform.Rotate(-5.0f, 0, 0);
+        }
+
+        if (Input.GetKey(KeyCode.L))
+        {
+             Wrist.transform.Rotate(5.0f, 0, 0);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
