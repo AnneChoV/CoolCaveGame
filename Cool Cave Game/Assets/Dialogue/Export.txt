@@ -1,0 +1,138 @@
+#SAY.Flowchart.7.Millie
+Shit!
+
+#SAY.Flowchart.16.Florie
+What was that?
+
+#SAY.Flowchart.2.Kevin
+The ceiling seems to have collapsed. Is anyone hurt?
+
+#SAY.Flowchart.19.Florie
+Yeah I'm okay, I think.
+
+#SAY.Flowchart.1.Millie
+I'm fine bro, are you?
+
+#SAY.Flowchart.12.Kevin
+I'm not hurt either.
+
+#SAY.Flowchart.13.Millie
+I can't see anything in here.
+
+#SAY.Flowchart.17.Florie
+It's so dark.
+
+#SAY.Flowchart.20.Florie
+Oh god, we're gonna die!
+
+#SAY.Flowchart.22.Millie
+Get it together, Florie. There's gotta be a way out of here.
+
+#SAY.Flowchart.21.Florie
+I guess there's a little bit of light in here at least.
+
+#SAY.Flowchart.15.Kevin
+Look, there's a gap up in the wall!
+
+#SAY.Flowchart.14.Millie
+Kevin, think you can climb through that gap?
+
+#SAY.Flowchart.18.Kevin
+Unlikely. Perhaps Florie can?
+
+#SAY.Flowchart.25.Florie
+I'm not sure if I can..
+
+#SAY.Flowchart.24.Millie
+Get your tiny ass up there!
+
+#SAY.Flowchart.23.Florie
+OW!
+
+#SAY.Flowchart.10.Kevin
+What happened?
+
+#SAY.Flowchart.26.Florie
+Millie pushed me!
+
+#SAY.Flowchart.27.Florie
+I don't think I can fit. Sorry guys.
+
+#SAY.Flowchart.28.Kevin
+Don't worry about it. We'll stay here for a bit then.
+
+#SAY.Flowchart.29.Kevin
+You know, I saw this documentary last weekend about camping out in the wild! This is just like that.
+
+#SAY.Flowchart.30.Millie
+Oh. Great.
+
+#SAY.Flowchart.31.Florie
+Really!? So what do we do now?
+
+#SAY.Flowchart.32.Kevin
+First, we need fire, of course!
+
+#SAY.Flowchart.33.Florie
+Fire, got it.
+
+#SAY.Flowchart.34.Millie
+How are we supposed to do that?
+
+#SAY.Flowchart.35.Kevin
+Well, we need to find wood. And then-
+
+#SAY.Flowchart.36.Millie
+Kevin, check my bag.
+
+#SAY.Flowchart.37.Kevin
+What? Why?
+
+#SAY.Flowchart.38.Millie
+Just do it dude.
+
+#SAY.Flowchart.39.Kevin
+Clever, you brought a lighter.
+
+#SAY.Flowchart.40.Florie
+Whoaah! Where did you get that?
+
+#SAY.Flowchart.41.Millie
+I took it from my dad's room. He didn't even notice!
+
+#SAY.Flowchart.42.Florie
+That's so cool!
+
+#SAY.Flowchart.43.Kevin
+Now we just need some wood.
+
+#SAY.Flowchart.44.Millie
+I don't see any wood around here.
+
+#SAY.Flowchart.45.Kevin
+No, but there was a storm last week. Some wood might have washed down further into the cave.
+
+#SAY.Flowchart.46.Florie
+Guys, I found a gap back here! I think the cave goes further inwards.
+
+#SAY.Flowchart.48.Florie
+I think I can crawl through and try to find some wood!
+
+#SAY.Flowchart.49.Millie
+Fine. But you better be careful, cuz I'm not squeezing through to save you.
+
+#SAY.Flowchart.47.Florie
+I'll be fine! I'll be back soon!
+
+#CHARACTER.Kevin
+Kevin
+
+#CHARACTER.Millie
+Millie
+
+#CHARACTER.Florie
+Florie
+
+#CHARACTER.Character Name
+Character Name
+

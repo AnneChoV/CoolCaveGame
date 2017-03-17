@@ -6,6 +6,7 @@ using Fungus;
 public class CampDialogue : MonoBehaviour {
 
     public Flowchart flowChart;
+    public GameObject Objection;
 	// Use this for initialization
 	void Start () {
 		
