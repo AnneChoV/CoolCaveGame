@@ -9,21 +9,30 @@ public class Inspect : MonoBehaviour {
     Rigidbody playersRigidBody;
 
     GameObject currentItem;
+    GameObject previousItem;
     Vector3 itemRotation;
 
     Vector3 currentItemsOriginalPosition;
+
     Quaternion currentItemsOriginalRotation;
+    Vector3 previousItemsOriginalPosition;
+    Quaternion previousItemsOriginalRotation;
     RigidbodyFirstPersonController firstPersonController;
 
     public GameObject blurObject;
 
-    float objectRotationSpeed;
+    public float objectRotationSpeed;
+    public float objectLerpingSpeed;
 
     // Use this for initialization
     void Start () {
-        if (objectRotationSpeed == 0.0f)
+        if (objectRotationSpeed == 0.0f)    //If we havn't set it in the thingy box.
         {
             objectRotationSpeed = 100.0f;
+        }
+        if (objectLerpingSpeed == 0.0f)
+        {
+            objectLerpingSpeed = 0.05f;
         }
         player = GetComponentInParent<Player>();
         playersRigidBody = GetComponentInParent<Rigidbody>();
@@ -39,6 +48,7 @@ public class Inspect : MonoBehaviour {
     {
         ProcessFindingAndPuttingAwayItems();
         ProcessInteractionsWithObject();
+        ProcessLerpingItemToAndFromPlayer();
     }
 
     private void ProcessFindingAndPuttingAwayItems()
@@ -60,48 +70,49 @@ public class Inspect : MonoBehaviour {
         //Lerping the object in front of or back to its position.
     }
 
-    private void ProcessKeepingItemWithPlayer() //Obsolete because the player doesn't move
+    private void ProcessLerpingItemToAndFromPlayer() //Obsolete because the player doesn't move
     {
-        if (currentItem != null)
-        {
-            currentItem.transform.position = Camera.main.transform.position + Camera.main.transform.forward.normalized * 1.0f;
-            // currentItem.transform.Rotate(itemRotation);
-        }
 
+        if (currentItem != null) //We have an item, we need to lerp it towards the player.
+        {
+            currentItem.transform.position = Vector3.Lerp(currentItem.transform.position, Camera.main.transform.position + Camera.main.transform.forward.normalized * 1.0f, objectLerpingSpeed);
+            currentItem.transform.rotation = Quaternion.Lerp(currentItem.transform.rotation, Quaternion.LookRotation(player.transform.position), objectLerpingSpeed);
+//currentItem.transform.Rotate(itemRotation);
+        }
+     
+        if (previousItem != null && previousItem != currentItem)
+        {
+            previousItem.transform.position = Vector3.Lerp(previousItem.transform.position, previousItemsOriginalPosition, objectLerpingSpeed);
+            previousItem.transform.rotation = Quaternion.Lerp(previousItem.transform.rotation, previousItemsOriginalRotation, objectLerpingSpeed);
+        }    
     }
 
     private void FindNewItem()
     {
         currentItem = player.FindObjectInFrontOfPlayer();
-        if (currentItem != null)
+        if (currentItem != null)    //This is needed in case the player misses their pick up. 
         {
-            blurObject.SetActive(true);
             firstPersonController.enabled = false;
 
-            currentItemsOriginalPosition = currentItem.transform.position;
-            currentItemsOriginalRotation = currentItem.transform.rotation;
-
-            //Rigidbody currentItemRigid = currentItem.GetComponent<Rigidbody>();   //No Rigidbodies.
-            //currentItemRigid.useGravity = false;    
-            Vector3 currentItemsHeldPosition = Camera.main.transform.position + Camera.main.transform.forward.normalized * 1.0f;
-            currentItem.transform.position = currentItemsHeldPosition;  
-            currentItem.transform.LookAt(player.transform);                         
+            if (currentItem != previousItem)    //Otherwise you can use the lerp to bring it closer permanently.
+            {
+                currentItemsOriginalPosition = currentItem.transform.position;
+                currentItemsOriginalRotation = currentItem.transform.rotation;
+            }
+            else
+            {
+                Debug.Log("It's working correctly");
+            }               
         }
     }
 
     private void PutAwayItem()
     {
-        blurObject.SetActive(false);
-        currentItem.transform.position = currentItemsOriginalPosition;
-        currentItem.transform.rotation = currentItemsOriginalRotation;
-
         firstPersonController.enabled = true;
+        previousItem = currentItem;
+        previousItemsOriginalPosition = currentItemsOriginalPosition;
+        previousItemsOriginalRotation = currentItemsOriginalRotation;
         currentItem = null;
-        //We'll place it back where it came from instead I guess?
-        //Rigidbody currentItemRigid = currentItem.GetComponent<Rigidbody>();
-        //currentItemRigid.useGravity = true;
-        ////Add some force to item so that it gets thrown.
-        //currentItemRigid.AddForce(Camera.main.transform.forward.normalized * 100.0f);
     }
 
     private void ProcessInteractionsWithObject()    //I need the players hand to set the rotation locks correctly.
