@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public GameObject Wrist;
-
 	// Use this for initialization
 	void Start () {
 		
@@ -25,26 +23,6 @@ public class Player : MonoBehaviour {
                 Debug.Log("There's something infront of the player!");
             }       
         }
-
-        if (Input.GetKey(KeyCode.K))
-        {
-            Wrist.transform.Rotate(0, 0, -5.0f);
-        }
-
-        if (Input.GetKey(KeyCode.I))
-        {
-            Wrist.transform.Rotate(0, 0, 5.0f);
-        }
-
-        if (Input.GetKey(KeyCode.J))
-        {
-            Wrist.transform.Rotate(-5.0f, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.L))
-        {
-             Wrist.transform.Rotate(5.0f, 0, 0);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,5 +31,16 @@ public class Player : MonoBehaviour {
         {
             Debug.Log("Collided with stuff");
         }
+    }
+
+    void Crouch()
+    {
+        //GetComponent<CapsuleCollider>().siz
+        //GetComponent<CapsuleCollider>().center = new Vector3(0, 0, 0);
+    }
+
+    void StopCrouch()
+    {
+
     }
 }
