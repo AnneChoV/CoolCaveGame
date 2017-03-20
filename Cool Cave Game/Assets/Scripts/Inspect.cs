@@ -1,0 +1,195 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
+
+public class Inspect : MonoBehaviour {
+
+    private Player player;
+    Rigidbody playersRigidBody;
+
+
+    public MeshRenderer blurRenderer;
+    GameObject currentItem;
+    GameObject previousItem;
+    Vector3 itemRotation;
+
+    Vector3 currentItemsOriginalPosition;
+
+  //  Quaternion currentItemsOriginalRotation;
+    Vector3 previousItemsOriginalPosition;
+  //  Quaternion previousItemsOriginalRotation;
+    RigidbodyFirstPersonController firstPersonController;
+
+    public GameObject blurObject;
+
+    public float objectRotationSpeed;
+    public float objectLerpingSpeed;
+    public float currentBlurAmount;
+
+    public bool isInspecting;
+    public bool isLogPickedUp;
+
+    // Use this for initialization
+    void Start () {
+        if (objectRotationSpeed == 0.0f)    //If we havn't set it in the thingy box.
+        {
+            objectRotationSpeed = 100.0f;
+        }
+        if (objectLerpingSpeed == 0.0f)
+        {
+            objectLerpingSpeed = 0.05f;
+        }
+        player = GetComponentInParent<Player>();
+        playersRigidBody = GetComponentInParent<Rigidbody>();
+        firstPersonController = GetComponentInParent<RigidbodyFirstPersonController>();
+        if (firstPersonController != null)
+        {
+            Debug.Log("It was found");
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        ProcessFindingAndPuttingAwayItems();
+        ProcessInteractionsWithObject();
+        ProcessLerpingItemToAndFromPlayer();
+
+
+    }
+
+    private void ProcessFindingAndPuttingAwayItems()
+    {
+
+        //Setting the object as the current object.
+        if (Input.GetKeyDown(KeyCode.P) == true)
+        {
+            if (currentItem == null)
+            {
+                FindNewItem();
+            }
+            else
+            {
+                PutAwayItem();
+            }
+        }
+        if (Input.GetKeyDown("space") && isInspecting)
+        {
+            Debug.Log("Item Picked up");
+            isLogPickedUp = true;
+            isInspecting = false;
+            currentItem.SetActive(false);
+            currentItem = null;
+            firstPersonController.enabled = true;
+
+        }
+
+        //Lerping the object in front of or back to its position.
+    }
+
+    private void ProcessLerpingItemToAndFromPlayer() //Obsolete because the player doesn't move
+    {
+
+        if (isInspecting == true)
+        {
+            currentBlurAmount = Mathf.Lerp(currentBlurAmount, 4.0f, objectLerpingSpeed);
+        }
+        else
+        {
+            Debug.Log("yes its entering");
+            currentBlurAmount = Mathf.Lerp(currentBlurAmount, 0.0f, objectLerpingSpeed);
+        }
+
+        blurRenderer.material.SetFloat("_BlurSamples", currentBlurAmount);
+
+        if (currentItem != null) //We have an item, we need to lerp it towards the player.
+        {
+            currentItem.transform.position = Vector3.Lerp(currentItem.transform.position, Camera.main.transform.position + Camera.main.transform.forward.normalized * 0.5f, objectLerpingSpeed);
+
+
+
+            // currentItem.transform.rotation = Quaternion.Lerp(currentItem.transform.rotation, Quaternion.LookRotation(player.transform.position), objectLerpingSpeed);
+
+            //currentItem.transform.Rotate(itemRotation);
+        }
+     
+        if (previousItem != null && previousItem != currentItem)
+        {
+            previousItem.transform.position = Vector3.Lerp(previousItem.transform.position, previousItemsOriginalPosition, objectLerpingSpeed);
+           // previousItem.transform.rotation = Quaternion.Lerp(previousItem.transform.rotation, previousItemsOriginalRotation, objectLerpingSpeed);
+        }    
+    }
+
+    private void FindNewItem()
+    {
+        currentItem = player.FindObjectInFrontOfPlayer();
+        if (currentItem != null)    //This is needed in case the player misses their pick up. 
+        {
+            firstPersonController.enabled = false;
+            isInspecting = true;
+
+            if (currentItem != previousItem)    //Otherwise you can use the lerp to bring it closer permanently.
+            {
+                currentItemsOriginalPosition = currentItem.transform.position;
+               // currentItemsOriginalRotation = currentItem.transform.rotation;
+            }             
+        }
+    }
+
+    private void PutAwayItem()
+    {
+        firstPersonController.enabled = true;
+        previousItem = currentItem;
+        previousItemsOriginalPosition = currentItemsOriginalPosition;
+      //  previousItemsOriginalRotation = currentItemsOriginalRotation;
+        currentItem = null;
+        isInspecting = false;
+        Debug.Log("yes its enterting2");
+    }
+
+    private void ProcessInteractionsWithObject()    //I need the players hand to set the rotation locks correctly.
+    {
+        if (currentItem == null) //Check if there's a current object.
+        {
+            return;
+        }
+        if (Input.GetButton("Inspect - Turn Left") == true)
+        {
+            if (currentItem.transform.localRotation.x >= 0.5f)
+            {
+    //            return;
+            }
+
+            currentItem.transform.Rotate(Time.deltaTime * 100, 0.0f, 0.0f);
+        }
+        if (Input.GetButton("Inspect - Turn Right") == true)
+        {
+            if (currentItem.transform.localRotation.x <= -0.5f)
+            {
+   //             return;
+            }
+            currentItem.transform.Rotate(-Time.deltaTime * 100, 0.0f, 0.0f);
+        }
+        if (Input.GetButton("Inspect - Turn Up") == true)
+        {
+
+            if (currentItem.transform.localRotation.z >= 0.5f)
+            {
+ //               return;
+            }
+            currentItem.transform.Rotate(0.0f, 0.0f, Time.deltaTime * 100);
+        }
+        if (Input.GetButton("Inspect - Turn Down") == true)
+        {
+            if (currentItem.transform.localRotation.z <= -0.5f)
+            {
+     //           return;
+            }
+            currentItem.transform.Rotate(0.0f, 0.0f, -Time.deltaTime * 100);
+        }
+    }
+}
+
+
+
