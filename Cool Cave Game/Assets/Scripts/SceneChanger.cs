@@ -43,7 +43,7 @@ public class SceneChanger : MonoBehaviour
     public void NewButton()
     {
         PlayerPrefs.DeleteAll();
-        SceneLoad("AnneCave");
+        SceneLoad("IntroScene");
     }
 
     public void LoadButton()
