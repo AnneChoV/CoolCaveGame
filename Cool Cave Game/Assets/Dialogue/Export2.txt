@@ -1,0 +1,243 @@
+#SAY.Flowchart.8.Millie
+Shit!
+
+#SAY.Flowchart.17.Florie
+What was that?
+
+#SAY.Flowchart.18.Kevin
+The ceiling seems to have collapsed. Is anyone hurt?
+
+#SAY.Flowchart.20.Florie
+Yeah I'm okay, I think.
+
+#SAY.Flowchart.21.Millie
+I'm fine bro, are you?
+
+#SAY.Flowchart.22.Kevin
+I'm not hurt either.
+
+#SAY.Flowchart.23.Millie
+I can't see anything in here.
+
+#SAY.Flowchart.24.Florie
+It's so dark.
+
+#SAY.Flowchart.25.Florie
+Oh god, we're gonna die!
+
+#SAY.Flowchart.26.Millie
+Get it together Florie! There's gotta be a way out of here.
+
+#SAY.Flowchart.27.Florie
+I guess there's a little bit of light in here at least.
+
+#SAY.Flowchart.28.Kevin
+Look, there's a gap up in the wall!
+
+#SAY.Flowchart.29.Millie
+Kevin, think you can climb through that gap?
+
+#SAY.Flowchart.30.Kevin
+Unlikely. Perhaps Florie can?
+
+#SAY.Flowchart.31.Florie
+I'm not sure if I can..
+
+#SAY.Flowchart.32.Millie
+Get your tiny ass up there!
+
+#SAY.Flowchart.33.Florie
+OW!
+
+#SAY.Flowchart.34.Kevin
+What happened?
+
+#SAY.Flowchart.35.Florie
+Millie pushed me!
+
+#SAY.Flowchart.36.Florie
+I don't think I can fit. Sorry guys.
+
+#SAY.Flowchart.37.Kevin
+Don't worry about it. We'll stay here for a bit then.
+
+#SAY.Flowchart.38.Kevin
+You know, I saw this documentary last weekend about camping out in the wild! This is just like that.
+
+#SAY.Flowchart.39.Millie
+Oh. Great.
+
+#SAY.Flowchart.40.Florie
+Really!? So what do we do now?
+
+#SAY.Flowchart.41.Kevin
+First, we need fire, of course!
+
+#SAY.Flowchart.42.Florie
+Fire, got it.
+
+#SAY.Flowchart.43.Millie
+How are we supposed to do that?
+
+#SAY.Flowchart.44.Kevin
+Well, we need to find wood. And then-
+
+#SAY.Flowchart.45.Millie
+Kevin, check my bag.
+
+#SAY.Flowchart.46.Kevin
+What? Why?
+
+#SAY.Flowchart.47.Millie
+Just do it dude.
+
+#SAY.Flowchart.48.Kevin
+Clever, you brought a lighter.
+
+#SAY.Flowchart.49.Florie
+Whoaah! Where did you get that?
+
+#SAY.Flowchart.50.Millie
+I took it from my dad's room. He didn't even notice!
+
+#SAY.Flowchart.51.Florie
+That's so cool!
+
+#SAY.Flowchart.52.Kevin
+Now we just need some wood.
+
+#SAY.Flowchart.53.Millie
+I don't see any wood around here.
+
+#SAY.Flowchart.54.Kevin
+No, but there was a storm last week. Some wood might have washed down further into the cave.
+
+#SAY.Flowchart.55.Florie
+Guys, I found a gap back here! I think the cave goes further inwards.
+
+#SAY.Flowchart.56.Florie
+I think I can crawl through and try to find some wood!
+
+#SAY.Flowchart.57.Millie
+Fine. But you better be careful, cuz I'm not squeezing through to save you.
+
+#SAY.Flowchart.58.Florie
+I'll be fine! I'll be back soon!
+
+#SAY.Flowchart.61.Florie
+I found some wood guys!
+
+#SAY.Flowchart.62.Kevin
+Neat. We can start a fire then.
+
+#SAY.Flowchart.64.Millie
+About time! We were starting to freeze.
+
+#SAY.Flowchart.65.Kevin
+We found some wood now and that's all that matters. For now.
+
+#SAY.Flowchart.66.Millie
+For now?! When are we getting out of this stupid place.
+
+#SAY.Flowchart.63.Florie
+Yeah I'm okay, I think.
+
+#SAY.Flowchart.67.Florie
+It's so dark.
+
+#SAY.Flowchart.71.Kevin
+Look, there's a gap up in the wall!
+
+#SAY.Flowchart.69.Millie
+Get it together Florie! There's gotta be a way out of here.
+
+#SAY._CommandCopyBuffer.43.Millie
+How are we supposed to do that?
+
+#SAY._CommandCopyBuffer.42.Florie
+Fire, got it.
+
+#SAY._CommandCopyBuffer.41.Kevin
+First, we need fire, of course!
+
+#SAY._CommandCopyBuffer.40.Florie
+Really!? So what do we do now?
+
+#SAY._CommandCopyBuffer.39.Millie
+Oh. Great.
+
+#SAY._CommandCopyBuffer.38.Kevin
+You know, I saw this documentary last weekend about camping out in the wild! This is just like that.
+
+#SAY._CommandCopyBuffer.37.Kevin
+Don't worry about it. We'll stay here for a bit then.
+
+#SAY._CommandCopyBuffer.36.Florie
+I don't think I can fit. Sorry guys.
+
+#SAY._CommandCopyBuffer.35.Florie
+Millie pushed me!
+
+#SAY._CommandCopyBuffer.34.Kevin
+What happened?
+
+#SAY._CommandCopyBuffer.33.Florie
+OW!
+
+#SAY._CommandCopyBuffer.32.Millie
+Get your tiny ass up there!
+
+#SAY._CommandCopyBuffer.31.Florie
+I'm not sure if I can..
+
+#SAY._CommandCopyBuffer.30.Kevin
+Unlikely. Perhaps Florie can?
+
+#SAY._CommandCopyBuffer.29.Millie
+Kevin, think you can climb through that gap?
+
+#SAY._CommandCopyBuffer.28.Kevin
+Look, there's a gap up in the wall!
+
+#SAY._CommandCopyBuffer.27.Florie
+I guess there's a little bit of light in here at least.
+
+#SAY._CommandCopyBuffer.26.Millie
+Get it together Florie! There's gotta be a way out of here.
+
+#SAY._CommandCopyBuffer.25.Florie
+Oh god, we're gonna die!
+
+#SAY._CommandCopyBuffer.24.Florie
+It's so dark.
+
+#SAY._CommandCopyBuffer.23.Millie
+I can't see anything in here.
+
+#SAY._CommandCopyBuffer.22.Kevin
+I'm not hurt either.
+
+#SAY._CommandCopyBuffer.21.Millie
+I'm fine bro, are you?
+
+#SAY._CommandCopyBuffer.20.Florie
+Yeah I'm okay, I think.
+
+#SAY._CommandCopyBuffer.18.Kevin
+The ceiling seems to have collapsed. Is anyone hurt?
+
+#SAY._CommandCopyBuffer.17.Florie
+What was that?
+
+#SAY._CommandCopyBuffer.8.Millie
+Shit!
+
+#CHARACTER.Kevin
+Kevin
+
+#CHARACTER.Millie
+Millie
+
+#CHARACTER.Florie
+Florie
+

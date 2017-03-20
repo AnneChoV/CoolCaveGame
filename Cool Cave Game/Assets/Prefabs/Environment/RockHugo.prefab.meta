@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Cool Cave Game/Assets/Meshes/geo_Rock.fbm.meta
+guid: 02649e98bd7736043b51f2462fcd17be
+folderAsset: yes
+timeCreated: 1489102901
+=======
 guid: 71c300fcb0035284a955c84e0e8421b0
 timeCreated: 1489964799
+>>>>>>> LevelDesign:Cool Cave Game/Assets/Prefabs/Environment/RockHugo.prefab.meta
 licenseType: Free
 NativeFormatImporter:
   mainObjectFileID: 100100000

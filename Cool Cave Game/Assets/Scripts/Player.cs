@@ -23,8 +23,7 @@ public class Player : MonoBehaviour {
                 Debug.Log("There's something infront of the player!");
             }       
         }
-
-	}
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,5 +31,16 @@ public class Player : MonoBehaviour {
         {
             Debug.Log("Collided with stuff");
         }
+    }
+
+    void Crouch()
+    {
+        //GetComponent<CapsuleCollider>().siz
+        //GetComponent<CapsuleCollider>().center = new Vector3(0, 0, 0);
+    }
+
+    void StopCrouch()
+    {
+
     }
 }
