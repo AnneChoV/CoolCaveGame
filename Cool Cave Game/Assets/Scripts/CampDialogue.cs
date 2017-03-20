@@ -7,9 +7,12 @@ public class CampDialogue : MonoBehaviour {
 
     public Flowchart flowChart;
     public GameObject Objection;
+
+    SceneChanger sceneChanger;
+
 	// Use this for initialization
 	void Start () {
-		
+        sceneChanger = FindObjectOfType<SceneChanger>();
 	}
 	
 	// Update is called once per frame
@@ -21,4 +24,9 @@ public class CampDialogue : MonoBehaviour {
         }
         
 	}
+
+    public void IntroDone()
+    {
+        sceneChanger.SceneLoad("PrototypeCave");
+    }
 }

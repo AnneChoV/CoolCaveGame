@@ -1,6 +1,13 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+guid: f6209b51b08c68049bf6e69f62201499
+folderAsset: yes
+timeCreated: 1489986554
+=======
+>>>>>>> AnneLevel
+<<<<<<< HEAD
 guid: 86909df4c36742d4fb24bab9e1d0cca5
 folderAsset: yes
 timeCreated: 1489618914
@@ -9,11 +16,15 @@ guid: f6209b51b08c68049bf6e69f62201499
 folderAsset: yes
 timeCreated: 1489952390
 >>>>>>> LevelDesign
+<<<<<<< HEAD
 =======
 guid: 86909df4c36742d4fb24bab9e1d0cca5
 folderAsset: yes
 timeCreated: 1489618914
 >>>>>>> InspectionBranch
+=======
+>>>>>>> AnneLevel
+>>>>>>> AnneLevel
 licenseType: Free
 DefaultImporter:
   userData: 

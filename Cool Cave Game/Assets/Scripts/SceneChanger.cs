@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     SoundManager soundManager;
+    GameState gameState;
 
     private void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
+        gameState = FindObjectOfType<GameState>();
     }
 
     IEnumerator Fading()
@@ -23,7 +25,7 @@ public class SceneChanger : MonoBehaviour
     {
         Fading();
         SceneManager.LoadScene(SceneName);
-        soundManager.playTheme(SceneName);
+        //soundManager.playTheme(SceneName);
     }
 
     public void restartScene()
@@ -34,13 +36,14 @@ public class SceneChanger : MonoBehaviour
 
     public void ContinueButton()
     {
-        soundManager.ButtonClick();
-        SceneLoad("Test_Map");
+        //soundManager.ButtonClick();
+        gameState.ContinueGame();
     }
 
     public void NewButton()
     {
-
+        PlayerPrefs.DeleteAll();
+        SceneLoad("IntroScene");
     }
 
     public void LoadButton()
