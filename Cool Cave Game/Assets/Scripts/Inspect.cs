@@ -8,21 +8,27 @@ public class Inspect : MonoBehaviour {
     private Player player;
     Rigidbody playersRigidBody;
 
+
+    public MeshRenderer blurRenderer;
     GameObject currentItem;
     GameObject previousItem;
     Vector3 itemRotation;
 
     Vector3 currentItemsOriginalPosition;
 
-    Quaternion currentItemsOriginalRotation;
+  //  Quaternion currentItemsOriginalRotation;
     Vector3 previousItemsOriginalPosition;
-    Quaternion previousItemsOriginalRotation;
+  //  Quaternion previousItemsOriginalRotation;
     RigidbodyFirstPersonController firstPersonController;
 
     public GameObject blurObject;
 
     public float objectRotationSpeed;
     public float objectLerpingSpeed;
+    public float currentBlurAmount;
+
+    public bool isInspecting;
+    public bool isLogPickedUp;
 
     // Use this for initialization
     void Start () {
@@ -49,6 +55,8 @@ public class Inspect : MonoBehaviour {
         ProcessFindingAndPuttingAwayItems();
         ProcessInteractionsWithObject();
         ProcessLerpingItemToAndFromPlayer();
+
+
     }
 
     private void ProcessFindingAndPuttingAwayItems()
@@ -66,6 +74,16 @@ public class Inspect : MonoBehaviour {
                 PutAwayItem();
             }
         }
+        if (Input.GetKeyDown("space") && isInspecting)
+        {
+            Debug.Log("Item Picked up");
+            isLogPickedUp = true;
+            isInspecting = false;
+            currentItem.SetActive(false);
+            currentItem = null;
+            firstPersonController.enabled = true;
+
+        }
 
         //Lerping the object in front of or back to its position.
     }
@@ -73,17 +91,33 @@ public class Inspect : MonoBehaviour {
     private void ProcessLerpingItemToAndFromPlayer() //Obsolete because the player doesn't move
     {
 
+        if (isInspecting == true)
+        {
+            currentBlurAmount = Mathf.Lerp(currentBlurAmount, 4.0f, objectLerpingSpeed);
+        }
+        else
+        {
+            Debug.Log("yes its entering");
+            currentBlurAmount = Mathf.Lerp(currentBlurAmount, 0.0f, objectLerpingSpeed);
+        }
+
+        blurRenderer.material.SetFloat("_BlurSamples", currentBlurAmount);
+
         if (currentItem != null) //We have an item, we need to lerp it towards the player.
         {
-            currentItem.transform.position = Vector3.Lerp(currentItem.transform.position, Camera.main.transform.position + Camera.main.transform.forward.normalized * 1.0f, objectLerpingSpeed);
-            currentItem.transform.rotation = Quaternion.Lerp(currentItem.transform.rotation, Quaternion.LookRotation(player.transform.position), objectLerpingSpeed);
-//currentItem.transform.Rotate(itemRotation);
+            currentItem.transform.position = Vector3.Lerp(currentItem.transform.position, Camera.main.transform.position + Camera.main.transform.forward.normalized * 0.5f, objectLerpingSpeed);
+
+
+
+            // currentItem.transform.rotation = Quaternion.Lerp(currentItem.transform.rotation, Quaternion.LookRotation(player.transform.position), objectLerpingSpeed);
+
+            //currentItem.transform.Rotate(itemRotation);
         }
      
         if (previousItem != null && previousItem != currentItem)
         {
             previousItem.transform.position = Vector3.Lerp(previousItem.transform.position, previousItemsOriginalPosition, objectLerpingSpeed);
-            previousItem.transform.rotation = Quaternion.Lerp(previousItem.transform.rotation, previousItemsOriginalRotation, objectLerpingSpeed);
+           // previousItem.transform.rotation = Quaternion.Lerp(previousItem.transform.rotation, previousItemsOriginalRotation, objectLerpingSpeed);
         }    
     }
 
@@ -93,16 +127,13 @@ public class Inspect : MonoBehaviour {
         if (currentItem != null)    //This is needed in case the player misses their pick up. 
         {
             firstPersonController.enabled = false;
+            isInspecting = true;
 
             if (currentItem != previousItem)    //Otherwise you can use the lerp to bring it closer permanently.
             {
                 currentItemsOriginalPosition = currentItem.transform.position;
-                currentItemsOriginalRotation = currentItem.transform.rotation;
-            }
-            else
-            {
-                Debug.Log("It's working correctly");
-            }               
+               // currentItemsOriginalRotation = currentItem.transform.rotation;
+            }             
         }
     }
 
@@ -111,8 +142,10 @@ public class Inspect : MonoBehaviour {
         firstPersonController.enabled = true;
         previousItem = currentItem;
         previousItemsOriginalPosition = currentItemsOriginalPosition;
-        previousItemsOriginalRotation = currentItemsOriginalRotation;
+      //  previousItemsOriginalRotation = currentItemsOriginalRotation;
         currentItem = null;
+        isInspecting = false;
+        Debug.Log("yes its enterting2");
     }
 
     private void ProcessInteractionsWithObject()    //I need the players hand to set the rotation locks correctly.
