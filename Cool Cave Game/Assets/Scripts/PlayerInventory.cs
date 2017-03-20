@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour {  //THIS ENTIRE SCRIPT IS TO TAKE THE SEPERATE INVENTORY PIECES OUT OF THE PLAYER
 
-    public List<bool> woodPieces;
+    //WOOD VARIABLES:
+    public int woodCollected;
+    public int totalWood;
     public bool allWoodPiecesCollected;
 
-	void Start () {
-        foreach (Transform child in transform)  //NEED TO MAKE THIS THE PARENT TRANSFORM THAT HOLDS ALL THE WOOD.
-        {
-            woodPieces.Add(false);
-        }
+
+    //HOLDER PARENTS:
+    GameObject woodHolder;  //WE NEED AN OBJECT CALLED WOODHOLDER TO PARENT ALL WOOD IN THE SCENE.
+
+
+    void Start () {
+        woodHolder = GameObject.Find("WoodHolder");
+        totalWood = woodHolder.transform.childCount;
 	}
 	
-	void Update () {
-		
+	void Update ()
+    { 
 	}
 
-    //If a woodpiece is added to the inventory, one of the bools in the list should be made true.
-    //If all the bools in the list are true, set AllWoodPeicesCollected to true.
+    public void AddWoodPieceToInventory()
+    {
+        woodCollected++;
+        if (woodCollected == totalWood)
+        {
+            allWoodPiecesCollected = true;
+        }
+    }
+
+    void RemoveAllWoodFromInventory()
+    {
+
+    }
 }

@@ -7,6 +7,9 @@ public class Inspect : MonoBehaviour {
 
     private Player player;
     Rigidbody playersRigidBody;
+    RigidbodyFirstPersonController firstPersonController;
+
+    PlayerInventory playerInventory;
 
 
     public MeshRenderer blurRenderer;
@@ -19,7 +22,8 @@ public class Inspect : MonoBehaviour {
   //  Quaternion currentItemsOriginalRotation;
     Vector3 previousItemsOriginalPosition;
   //  Quaternion previousItemsOriginalRotation;
-    RigidbodyFirstPersonController firstPersonController;
+
+
 
     public GameObject blurObject;
 
@@ -43,6 +47,7 @@ public class Inspect : MonoBehaviour {
         player = GetComponentInParent<Player>();
         playersRigidBody = GetComponentInParent<Rigidbody>();
         firstPersonController = GetComponentInParent<RigidbodyFirstPersonController>();
+        playerInventory = GetComponentInParent<PlayerInventory>();
         if (firstPersonController != null)
         {
             Debug.Log("It was found");
@@ -82,7 +87,9 @@ public class Inspect : MonoBehaviour {
             currentItem.SetActive(false);
             currentItem = null;
             firstPersonController.enabled = true;
+            playersRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
 
+            playerInventory.AddWoodPieceToInventory();
         }
 
         //Lerping the object in front of or back to its position.
@@ -97,7 +104,6 @@ public class Inspect : MonoBehaviour {
         }
         else
         {
-            Debug.Log("yes its entering");
             currentBlurAmount = Mathf.Lerp(currentBlurAmount, 0.0f, objectLerpingSpeed);
         }
 
@@ -127,6 +133,7 @@ public class Inspect : MonoBehaviour {
         if (currentItem != null)    //This is needed in case the player misses their pick up. 
         {
             firstPersonController.enabled = false;
+            playersRigidBody.constraints = RigidbodyConstraints.FreezeAll;
             isInspecting = true;
 
             if (currentItem != previousItem)    //Otherwise you can use the lerp to bring it closer permanently.
@@ -140,6 +147,7 @@ public class Inspect : MonoBehaviour {
     private void PutAwayItem()
     {
         firstPersonController.enabled = true;
+        playersRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
         previousItem = currentItem;
         previousItemsOriginalPosition = currentItemsOriginalPosition;
       //  previousItemsOriginalRotation = currentItemsOriginalRotation;

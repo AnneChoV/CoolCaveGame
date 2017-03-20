@@ -2,39 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< HEAD
-public class Player : MonoBehaviour {
-    
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        //Vector3 inFront = transform.TransformDirection(Vector3.forward);
-
-        if (Physics.Raycast(ray, out hit, 1.5f))
-        {
-            if (hit.transform.tag == "InteractableItem")
-            {
-                Debug.Log("There's something infront of the player!");
-            }       
-        }
-=======
 public class Player : MonoBehaviour
 {
-
-    //The one pickupable item
-    GameObject cat;
-    [Header("Game Item Bools")]
-    public bool hasGotCat;
-
-
     // Use this for initialization
     void Start()
     {
@@ -62,8 +32,6 @@ public class Player : MonoBehaviour
         //        //hit.transform.gameObject.SetActive(false);
         //    }
         //}
-
->>>>>>> InspectionBranch
     }
 
     private void OnTriggerEnter(Collider other)
@@ -74,7 +42,6 @@ public class Player : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     void Crouch()
     {
         //GetComponent<CapsuleCollider>().siz
@@ -84,7 +51,7 @@ public class Player : MonoBehaviour
     void StopCrouch()
     {
 
-=======
+    }
     public GameObject FindObjectInFrontOfPlayer()
     {
         RaycastHit hit;
@@ -104,6 +71,5 @@ public class Player : MonoBehaviour
         }
         Debug.Log("No item found in front of the player");
         return null;
->>>>>>> InspectionBranch
     }
 }
