@@ -7,14 +7,63 @@ public class GameState : MonoBehaviour {
 
     SceneChanger sceneChanger;
 
-	// Use this for initialization
-	void Start () {
+    bool continued;
+
+    public static GameState instance = null;
+
+    private void Awake()
+    {
+        //Check if there is already an instance of SoundManager
+        if (instance == null)
+            //if not, set it to this.
+            instance = this;
+        //If instance already exists:
+        else if (instance != this)
+            //Destroy this, this enforces our singleton pattern so there can only be one instance of SoundManager.
+            Destroy(gameObject);
+
+        //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
+        DontDestroyOnLoad(gameObject);
+    }
+
+    // Use this for initialization
+    void Start () {
         sceneChanger = FindObjectOfType<SceneChanger>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    SaveGame();
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.U))
+        //{
+        //    Cursor.lockState = CursorLockMode.None;
+        //    Cursor.visible = true;
+        //    sceneChanger.SceneLoad("Main Menu");
+        //    Debug.Log(Cursor.lockState);
+        //    Debug.Log(Cursor.visible);
+        //}
+
+        if (continued == true)
+        {
+            // Get player location from last save
+            float locx = PlayerPrefs.GetFloat("PlayerLocX");
+            float locy = PlayerPrefs.GetFloat("PlayerLocY");
+            float locz = PlayerPrefs.GetFloat("PlayerLocZ");
+            GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(locx, locy, locz);
+
+            float rotx = PlayerPrefs.GetFloat("PlayerRotX");
+            float roty = PlayerPrefs.GetFloat("PlayerRotY");
+            float rotz = PlayerPrefs.GetFloat("PlayerRotZ");
+            float rotw = PlayerPrefs.GetFloat("PlayerRotW");
+            GameObject.FindGameObjectWithTag("Player").transform.rotation = new Quaternion(rotx, roty, rotz, rotw);
+
+            continued = false;
+        }
 	}
 
     public void SaveGame()
@@ -34,24 +83,27 @@ public class GameState : MonoBehaviour {
 
         // Save current scene
         PlayerPrefs.SetString("Scene", SceneManager.GetActiveScene().name);
+
+        Debug.Log("Saved!");
+        Debug.Log("Saved scene " + SceneManager.GetActiveScene().name);
+
+        float locx = PlayerPrefs.GetFloat("PlayerLocX");
+        float locy = PlayerPrefs.GetFloat("PlayerLocY");
+        float locz = PlayerPrefs.GetFloat("PlayerLocZ");
+
+        Debug.Log(locx + "  " +  locy + "  " + locz);
     }
 
     public void ContinueGame()
     {
+        //sceneChanger.ContinueButton();
+
         // Load the saved scene
         sceneChanger.SceneLoad(PlayerPrefs.GetString("Scene"));
 
-        // Get player location from last save
-        float locx = PlayerPrefs.GetFloat("PlayerLocX");
-        float locy = PlayerPrefs.GetFloat("PlayerLocY");
-        float locz = PlayerPrefs.GetFloat("PlayerLocZ");
-        FindObjectOfType<Player>().transform.position = new Vector3(locx, locy, locz);
+        Debug.Log(PlayerPrefs.GetString("Scene"));
 
-        float rotx = PlayerPrefs.GetFloat("PlayerRotX");
-        float roty = PlayerPrefs.GetFloat("PlayerRotY");
-        float rotz = PlayerPrefs.GetFloat("PlayerRotZ");
-        float rotw = PlayerPrefs.GetFloat("PlayerRotW");
-        FindObjectOfType<Player>().transform.rotation = new Quaternion(rotx, roty, rotz, rotw);
 
+        continued = true;
     }
 }
