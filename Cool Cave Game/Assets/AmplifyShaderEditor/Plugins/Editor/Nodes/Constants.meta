@@ -1,8 +1,13 @@
 fileFormatVersion: 2
 guid: e7354e1a2beece044944bc1cba85aebc
 folderAsset: yes
+<<<<<<< HEAD
 timeCreated: 1490066211
 licenseType: Free
+=======
+timeCreated: 1481126946
+licenseType: Store
+>>>>>>> PickingUpItemsBranch
 DefaultImporter:
   userData: 
   assetBundleName: 
