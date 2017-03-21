@@ -9,49 +9,48 @@ public class SoundManager : MonoBehaviour
     public AudioSource themeSource;
     public AudioSource efxSource;
 
-    public AudioClip mainTheme;
-    public AudioClip battleTheme;
+    public AudioClip mainMenu;
+    public AudioClip caveTheme;
+    public AudioClip fireplaceTheme;
 
-    public AudioClip buttonClick;
-    public AudioClip dialogueSound;
-    public AudioClip stanceChange;
-    public AudioClip rangedAttack;
-    public AudioClip meleeAttack;
-    public AudioClip unconcious;
-    public AudioClip block;
-    public AudioClip heal;
-    public AudioClip oil;
-    public AudioClip fire;
+    public AudioClip rockFall;
+    public AudioClip rockFall2;
+    public AudioClip bagSearch;
+    public AudioClip punch;
+
 
     private AudioClip selectedTheme;
     //public AudioClip[] starClicks;
 
     public static SoundManager instance = null;
 
-    private bool battleOver = false;
-
     // Use this for initialization
     void Awake()
     {
         if (SceneManager.GetActiveScene().name == "Main Menu")
         {
-            selectedTheme = mainTheme;
+            selectedTheme = mainMenu;
         }
 
-        if (SceneManager.GetActiveScene().name == "Test_Map")
+        if (SceneManager.GetActiveScene().name == "AnneCave")
         {
-            selectedTheme = mainTheme;
+            selectedTheme = caveTheme;
         }
 
-        if (SceneManager.GetActiveScene().name == "Not not Combat Scene")
+        if (SceneManager.GetActiveScene().name == "IntroScene")
         {
-            selectedTheme = battleTheme;
+            selectedTheme = caveTheme;
         }
 
-        efxSource = GameObject.Find("Game Manager").GetComponent<AudioSource>();
+        if (SceneManager.GetActiveScene().name == "Test_Campfire")
+        {
+            selectedTheme = fireplaceTheme;
+        }
+
+        efxSource = GameObject.Find("Sound Manager").GetComponent<AudioSource>();
         themeSource = GameObject.Find("Game Manager").GetComponent<AudioSource>();
 
-        themeSource.PlayOneShot(selectedTheme);
+        themeSource.PlayOneShot(selectedTheme, 0.5f);
 
         //Check if there is already an instance of SoundManager
         if (instance == null)
@@ -67,82 +66,40 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    public void ButtonClick()
-    {
-        efxSource.PlayOneShot(buttonClick);
-    }
-
-    public void DialogueSound()
-    {
-        efxSource.PlayOneShot(dialogueSound, 3.0f);
-    }
-
-    public void StanceChange()
-    {
-        efxSource.PlayOneShot(stanceChange);
-    }
-    public void RangedAttack()
-    {
-        efxSource.PlayOneShot(rangedAttack);
-    }
-    public void MeleeAttack()
-    {
-        efxSource.PlayOneShot(meleeAttack);
-    }
-    public void Unconcious()
-    {
-        efxSource.PlayOneShot(unconcious);
-    }
-
-    public void Block()
-    {
-        efxSource.PlayOneShot(block);
-    }
-    public void Heal()
-    {
-        efxSource.PlayOneShot(heal);
-    }
-    public void Oil()
-    {
-        efxSource.PlayOneShot(oil);
-    }
-    public void Fire()
-    {
-        efxSource.PlayOneShot(fire);
-    }
-
-    //public void PlayStar()
-    //{
-    //    int randomClick = Random.Range(0, starClicks.Length);
-    //    AudioClip starClick = starClicks[randomClick];
-    //    efxSource.PlayOneShot(starClick);
-    //}
-
     public void playTheme(string sceneName)
     {
-        if (SceneManager.GetActiveScene().name == "Main Menu")
+        if (sceneName == "AnneCave")
         {
-            selectedTheme = mainTheme;
+            selectedTheme = caveTheme;
+            themeSource.PlayOneShot(selectedTheme);
         }
 
-        if (sceneName == "Test_Map")
+        if (sceneName == "IntroScene")
         {
-            if (battleOver == true)
-            {
-                themeSource.Stop();
-                selectedTheme = mainTheme;
-                themeSource.PlayOneShot(selectedTheme);
-                Debug.Log("Map");
-            }
+            efxSource.PlayOneShot(rockFall, 0.6f);
+            efxSource.PlayOneShot(rockFall2, 0.6f);
+            selectedTheme = caveTheme;
+            themeSource.clip = selectedTheme;
+            themeSource.PlayDelayed(4.0f);
+            themeSource.volume = 0.1f;
         }
 
-        if (sceneName == "Test_Combat")
+        
+        if (sceneName == "Test_Campfire")
         {
             themeSource.Stop();
-            selectedTheme = battleTheme;
+            selectedTheme = fireplaceTheme;
             themeSource.PlayOneShot(selectedTheme);
-            Debug.Log("Combat");
         }
     }
 
+    public void BagSearch()
+    {
+        efxSource.PlayOneShot(bagSearch);
+    }
+
+    public void Punch()
+    {
+        efxSource.PlayOneShot(punch);
+    }
 }

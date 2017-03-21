@@ -9,10 +9,12 @@ public class CampDialogue : MonoBehaviour {
     public GameObject Objection;
 
     SceneChanger sceneChanger;
+    SoundManager soundManager;
 
 	// Use this for initialization
 	void Start () {
         sceneChanger = FindObjectOfType<SceneChanger>();
+        soundManager = FindObjectOfType<SoundManager>();
 	}
 	
 	// Update is called once per frame
@@ -28,5 +30,15 @@ public class CampDialogue : MonoBehaviour {
     public void IntroDone()
     {
         sceneChanger.SceneLoad("PrototypeCave");
+    }
+
+    public void BagSearch()
+    {
+        soundManager.BagSearch();
+    }
+
+    public void Punch()
+    {
+        soundManager.Punch();
     }
 }
