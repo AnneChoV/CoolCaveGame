@@ -29,7 +29,6 @@ public class Fader : MonoBehaviour
 
     void Awake()
     {
-
         BeginFade(-1);
     }
 
