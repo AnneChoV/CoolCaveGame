@@ -39,6 +39,12 @@ public class SceneChanger : MonoBehaviour
        
         SceneManager.LoadScene(sceneName);
         soundManager.playTheme(sceneName);
+
+        if (sceneName == "Test_Campfire")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
        // FindObjectOfType<Fader>().OnLevelWasLoaded();
     }
 

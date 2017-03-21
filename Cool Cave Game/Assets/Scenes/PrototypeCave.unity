@@ -28647,7 +28647,7 @@ Prefab:
     - target: {fileID: 114479463088678492, guid: 36f08ecb52358314184b5b06d8a20a22,
         type: 2}
       propertyPath: m_JumpSpeed
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114322061004976590, guid: 36f08ecb52358314184b5b06d8a20a22,
         type: 2}
@@ -28667,6 +28667,11 @@ Prefab:
         type: 2}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114479463088678492, guid: 36f08ecb52358314184b5b06d8a20a22,
+        type: 2}
+      propertyPath: m_RunSpeed
+      value: 1.4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114967361251583508, guid: 36f08ecb52358314184b5b06d8a20a22, type: 2}
