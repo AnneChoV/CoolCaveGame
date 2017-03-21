@@ -27,7 +27,7 @@ public class SoundManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        if (SceneManager.GetActiveScene().name == "Main Menu")
+        if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             selectedTheme = mainMenu;
         }

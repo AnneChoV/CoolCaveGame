@@ -628,7 +628,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1284064917}
-        m_MethodName: NewButton
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOutTexture: {fileID: 2800000, guid: eef77aa8c4abed54785b345ce04aac7a, type: 3}
-  fadeSpeed: 0.8
+  fadeSpeed: 1
 --- !u!1 &314709493
 GameObject:
   m_ObjectHideFlags: 0
@@ -9439,6 +9439,65 @@ Prefab:
     - target: {fileID: 4548083757549782, guid: 15ad5e8590648884896d78644246e426, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841249630899788, guid: 15ad5e8590648884896d78644246e426, type: 2}
+      propertyPath: m_Name
+      value: Press Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 212433809852946568, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212433809852946568, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212433809852946568, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212433809852946568, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65087321753500538, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212433809852946568, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65087321753500538, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.99038553
+      objectReference: {fileID: 0}
+    - target: {fileID: 65087321753500538, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 0.06554508
+      objectReference: {fileID: 0}
+    - target: {fileID: 65087321753500538, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_Center.y
+      value: -0.028235674
+      objectReference: {fileID: 0}
+    - target: {fileID: 65087321753500538, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 0.0000000012511254
+      objectReference: {fileID: 0}
+    - target: {fileID: 65087321753500538, guid: 15ad5e8590648884896d78644246e426,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 5.1098
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15ad5e8590648884896d78644246e426, type: 2}
