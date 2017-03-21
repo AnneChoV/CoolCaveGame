@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
+//I NEED TO: Make the exclaimatiojn/question mark show up to show interactivity
+//Change the key input maybe to mouseclick.
+//make it so that I can scale and get it closer.
+
+
+
 public class Inspect : MonoBehaviour {
 
     private Player player;
     Rigidbody playersRigidBody;
-    RigidbodyFirstPersonController firstPersonController;
+    FirstPersonController firstPersonController;
 
     PlayerInventory playerInventory;
 
@@ -17,12 +23,15 @@ public class Inspect : MonoBehaviour {
     GameObject previousItem;
     Vector3 itemRotation;
 
+    float objectScaleAndClosenessMultiplier;
+
     Vector3 currentItemsOriginalPosition;
+    Vector3 currentItemsOriginalScale;
+    float currentItemsOriginalOutlineWidth;
 
   //  Quaternion currentItemsOriginalRotation;
     Vector3 previousItemsOriginalPosition;
   //  Quaternion previousItemsOriginalRotation;
-
 
 
     public GameObject blurObject;
@@ -46,12 +55,13 @@ public class Inspect : MonoBehaviour {
         }
         player = GetComponentInParent<Player>();
         playersRigidBody = GetComponentInParent<Rigidbody>();
-        firstPersonController = GetComponentInParent<RigidbodyFirstPersonController>();
+        firstPersonController = GetComponentInParent<FirstPersonController>();
         playerInventory = GetComponentInParent<PlayerInventory>();
         if (firstPersonController != null)
         {
             Debug.Log("It was found");
         }
+        objectScaleAndClosenessMultiplier = 2.0f;
     }
 
     // Update is called once per frame
@@ -111,7 +121,8 @@ public class Inspect : MonoBehaviour {
 
         if (currentItem != null) //We have an item, we need to lerp it towards the player.
         {
-            currentItem.transform.position = Vector3.Lerp(currentItem.transform.position, Camera.main.transform.position + Camera.main.transform.forward.normalized * 0.5f, objectLerpingSpeed);
+            currentItem.transform.position = Vector3.Lerp(currentItem.transform.position, Camera.main.transform.position + Camera.main.transform.forward.normalized * 0.8f / objectScaleAndClosenessMultiplier, objectLerpingSpeed);
+            currentItem.transform.localScale = Vector3.Lerp(currentItem.transform.localScale, currentItemsOriginalScale / objectScaleAndClosenessMultiplier, objectLerpingSpeed);
 
 
 
@@ -139,7 +150,11 @@ public class Inspect : MonoBehaviour {
             if (currentItem != previousItem)    //Otherwise you can use the lerp to bring it closer permanently.
             {
                 currentItemsOriginalPosition = currentItem.transform.position;
-               // currentItemsOriginalRotation = currentItem.transform.rotation;
+                currentItemsOriginalScale = currentItem.transform.localScale;
+                currentItemsOriginalOutlineWidth = currentItem.GetComponent<BoxCollider>().material.
+                Debug.Log(currentItemsOriginalOutlineWidth + "this");
+                blurRenderer.material.SetFloat("_BlurSamples", currentBlurAmount);
+                // currentItemsOriginalRotation = currentItem.transform.rotation;
             }             
         }
     }
@@ -153,7 +168,6 @@ public class Inspect : MonoBehaviour {
       //  previousItemsOriginalRotation = currentItemsOriginalRotation;
         currentItem = null;
         isInspecting = false;
-        Debug.Log("yes its enterting2");
     }
 
     private void ProcessInteractionsWithObject()    //I need the players hand to set the rotation locks correctly.
