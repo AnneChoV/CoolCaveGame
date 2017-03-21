@@ -7,8 +7,6 @@ using UnityStandardAssets.Characters.FirstPerson;
 //Change the key input maybe to mouseclick. YE
 //make it so that I can scale and get it closer. YE
 
-
-
 public class Inspect : MonoBehaviour {
 
     private Player player;
@@ -51,6 +49,7 @@ public class Inspect : MonoBehaviour {
 
     public bool isInspecting;
     public bool isLogPickedUp;
+    public GameObject InspectingUI;
 
     // Use this for initialization
     void Start () {
@@ -74,21 +73,10 @@ public class Inspect : MonoBehaviour {
 
     private void ProcessFindingAndPuttingAwayItems()
     {
-        //Setting the object as the current object.
-        if (Input.GetMouseButtonDown(0) == true)
-        {
-            if (currentItem == null)
-            {
-                FindNewItem();
-            }
-            else
-            {
-                PutAwayItem();
-            }
-        }
-        if (Input.GetMouseButtonDown(1) == true && isInspecting)
+        if (Input.GetMouseButtonDown(0) == true && isInspecting)
         {
             Debug.Log("Item Picked up");
+            
             isLogPickedUp = true;
             isInspecting = false;
             currentItem.SetActive(false);
@@ -97,7 +85,29 @@ public class Inspect : MonoBehaviour {
             playersRigidBody.constraints = RigidbodyConstraints.FreezeRotation;
 
             playerInventory.AddWoodPieceToInventory();
+
+            InspectingUI.SetActive(false);
         }
+
+        //Setting the object as the current object.
+       else if (Input.GetMouseButton(0) == true && !isInspecting)
+        {
+            if (currentItem == null)
+            {         
+                FindNewItem();
+            }
+        }
+
+        else if (Input.GetMouseButtonDown(1) == true)
+        {
+            if (currentItem != null)
+            {
+                 PutAwayItem();
+            }         
+        }
+        
+
+       
 
         //Lerping the object in front of or back to its position.
     }
@@ -159,7 +169,10 @@ public class Inspect : MonoBehaviour {
                 Debug.Log(currentItemsOriginalOutlineWidth + "this");
                 //currentItem.layer = LayerMask.NameToLayer("PickupLayer");
                 blurRenderer.material.SetFloat("_BlurSamples", currentBlurAmount);
-            }             
+
+                
+            }
+            InspectingUI.SetActive(true);
         }
     }
 
@@ -180,6 +193,8 @@ public class Inspect : MonoBehaviour {
 
         currentItem = null;
         isInspecting = false;
+
+        InspectingUI.SetActive(false);
     }
 
     private void ProcessInteractionsWithObject()    //I need the players hand to set the rotation locks correctly.

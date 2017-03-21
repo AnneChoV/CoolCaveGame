@@ -95,7 +95,7 @@ public class SoundManager : MonoBehaviour
 
     public void BagSearch()
     {
-        efxSource.PlayOneShot(bagSearch);
+        efxSource.PlayOneShot(bagSearch, 1.6f);
     }
 
     public void Punch()

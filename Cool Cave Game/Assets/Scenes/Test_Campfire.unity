@@ -397,30 +397,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 40811651}
---- !u!84 &113956179
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 1636
-  m_Height: 920
-  m_AntiAliasing: 2
-  m_DepthFormat: 2
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapMode: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &120191255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2985,6 +2961,30 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1075213676}
+--- !u!84 &1191329717
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 1145
+  m_Height: 644
+  m_AntiAliasing: 2
+  m_DepthFormat: 2
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapMode: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1237946577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,7 +3265,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 113956179}
+  m_TargetTexture: {fileID: 1191329717}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -4868,6 +4868,7 @@ GameObject:
   - component: {fileID: 1964322663}
   - component: {fileID: 1964322662}
   - component: {fileID: 1964322653}
+  - component: {fileID: 1964322666}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -4901,7 +4902,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1964322635}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1964322666}
   variables:
   - {fileID: 1964322598}
   description: 
@@ -6107,6 +6109,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 1964322661}
   - {fileID: 1964322660}
+  - {fileID: 1964322666}
   - {fileID: 1964322658}
   - {fileID: 1964322657}
   - {fileID: 1964322656}
@@ -6161,7 +6164,7 @@ MonoBehaviour:
   itemId: 88
   indentLevel: 0
   storyText: Due to the positioning of the crack in the ceiling, I can tell that the
-    light of the sun will be most adequte to see in here during the early morning.
+    light of the sun will be most adequate to see in here during the early morning.
   description: 
   character: {fileID: 654221069}
   portrait: {fileID: 0}
@@ -6556,7 +6559,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 436141912}
 --- !u!114 &1964322653
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1964322587}
@@ -6869,6 +6872,70 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 1945818618}
+--- !u!114 &1964322666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964322587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 99
+  indentLevel: 0
+  description: 
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2105970749}
+        m_MethodName: StartFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Fungus.InvokeEvent+BooleanEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Fungus.InvokeEvent+IntegerEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Fungus.InvokeEvent+FloatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Fungus.InvokeEvent+StringEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1970926510
 GameObject:
   m_ObjectHideFlags: 0
@@ -7138,7 +7205,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3518cbf507c6fc84f8566fb92e798468, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48e37c4e630a8a140b0db5473a854a2d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7181,6 +7248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowChart: {fileID: 1964322588}
   Objection: {fileID: 172450154}
+  SceneImage: {fileID: 2069520929}
+  FireImage: {fileID: 21300000, guid: 22f391839596c7d47b76e9c720dc89ac, type: 3}
 --- !u!4 &2105970750
 Transform:
   m_ObjectHideFlags: 0

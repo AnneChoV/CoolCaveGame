@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/AnneCave.unity
   - enabled: 1
     path: Assets/Scenes/PrototypeCave.unity
+  - enabled: 1
+    path: Assets/Scenes/Test_Campfire.unity

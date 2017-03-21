@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using UnityEngine.UI;
 
 public class CampDialogue : MonoBehaviour {
 
     public Flowchart flowChart;
     public GameObject Objection;
+    public GameObject SceneImage;
+    public Sprite FireImage;
 
     SceneChanger sceneChanger;
     SoundManager soundManager;
@@ -40,5 +43,10 @@ public class CampDialogue : MonoBehaviour {
     public void Punch()
     {
         soundManager.Punch();
+    }
+
+    public void StartFire()
+    {
+        SceneImage.GetComponent<Image>().sprite = FireImage;
     }
 }
