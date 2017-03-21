@@ -86,7 +86,7 @@ public class Inspect : MonoBehaviour {
                 PutAwayItem();
             }
         }
-        if (Input.GetKeyDown("space") && isInspecting)
+        if (Input.GetMouseButtonDown(1) == true && isInspecting)
         {
             Debug.Log("Item Picked up");
             isLogPickedUp = true;
