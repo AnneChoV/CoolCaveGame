@@ -25,7 +25,7 @@ public class SceneChanger : MonoBehaviour
     {
         Fading();
         SceneManager.LoadScene(SceneName);
-        //soundManager.playTheme(SceneName);
+        soundManager.playTheme(SceneName);
     }
 
     public void restartScene()
