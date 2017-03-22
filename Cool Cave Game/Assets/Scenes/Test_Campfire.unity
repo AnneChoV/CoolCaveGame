@@ -107,30 +107,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!84 &11365950
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 1145
-  m_Height: 644
-  m_AntiAliasing: 2
-  m_DepthFormat: 2
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapMode: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &16037865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,6 +2983,30 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1075213676}
+--- !u!84 &1208355615
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 1145
+  m_Height: 644
+  m_AntiAliasing: 2
+  m_DepthFormat: 2
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapMode: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1237946577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3287,7 +3287,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 11365950}
+  m_TargetTexture: {fileID: 1208355615}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -7227,7 +7227,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 48e37c4e630a8a140b0db5473a854a2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2c2d0c27e74530241889a2437cb193a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7271,7 +7271,7 @@ MonoBehaviour:
   flowChart: {fileID: 1964322588}
   Objection: {fileID: 172450154}
   SceneImage: {fileID: 2069520929}
-  FireImage: {fileID: 21300000, guid: 22f391839596c7d47b76e9c720dc89ac, type: 3}
+  FireImage: {fileID: 21300000, guid: c577f4574434ba04fa53df6a53202b40, type: 3}
 --- !u!4 &2105970750
 Transform:
   m_ObjectHideFlags: 0
