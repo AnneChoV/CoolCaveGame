@@ -14,6 +14,17 @@ public class SceneChanger : MonoBehaviour
         gameState = FindObjectOfType<GameState>();
     }
 
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+            {
+                NewButton();
+            }
+        }
+    }
+
     IEnumerator Fading()
     {
         float fadeTime = GameObject.Find("Game Manager").GetComponent<Fader>().BeginFade(1);
@@ -21,11 +32,25 @@ public class SceneChanger : MonoBehaviour
     }
 
 
+    IEnumerator LoadScene(string sceneName)
+    {
+        float fadeTime = GameObject.Find("Game Manager").GetComponent<Fader>().BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);
+       
+        SceneManager.LoadScene(sceneName);
+        soundManager.playTheme(sceneName);
+
+        if (sceneName == "Test_Campfire")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+       // FindObjectOfType<Fader>().OnLevelWasLoaded();
+    }
+
     public void SceneLoad(string SceneName)
     {
-        Fading();
-        SceneManager.LoadScene(SceneName);
-        //soundManager.playTheme(SceneName);
+        StartCoroutine(LoadScene(SceneName));
     }
 
     public void restartScene()
@@ -34,22 +59,12 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(scene.name);
     }
 
-    public void ContinueButton()
-    {
-        //soundManager.ButtonClick();
-        gameState.ContinueGame();
-    }
-
     public void NewButton()
     {
         PlayerPrefs.DeleteAll();
-        SceneLoad("AnneCave");
+        StartCoroutine(LoadScene("IntroScene"));
     }
 
-    public void LoadButton()
-    {
-
-    }
 
     public void OptionsButton()
     {
@@ -60,4 +75,6 @@ public class SceneChanger : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 }

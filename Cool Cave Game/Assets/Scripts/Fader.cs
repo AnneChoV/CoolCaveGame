@@ -11,6 +11,13 @@ public class Fader : MonoBehaviour
     private float alpha = 1.0f;
     private int fadeDir = -1; // direction to fade: in = -1, out = 1
 
+    public static Fader instance = null;
+
+    void Awake()
+    {
+        BeginFade(-1);
+    }
+
     void OnGUI()
     {
         alpha += fadeDir * fadeSpeed * Time.deltaTime;
@@ -27,14 +34,12 @@ public class Fader : MonoBehaviour
         return (fadeSpeed);
     }
 
-    void Awake()
+    private void OnLevelWasLoaded()
     {
-
         BeginFade(-1);
     }
 
-
-    //void OnLevelWasLoaded()
+    //public void OnLevelWasLoaded()
     //{
     //    // alpha = 1;
     //    BeginFade(-1);
