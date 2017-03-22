@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     SoundManager soundManager;
-    GameState gameState;
 
     private void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
-        gameState = FindObjectOfType<GameState>();
     }
 
     private void Update()

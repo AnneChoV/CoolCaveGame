@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip rockFall2;
     public AudioClip bagSearch;
     public AudioClip punch;
+    public AudioClip startFire;
 
 
     private AudioClip selectedTheme;
@@ -101,5 +102,14 @@ public class SoundManager : MonoBehaviour
     public void Punch()
     {
         efxSource.PlayOneShot(punch);
+    }
+
+    public void StartFire()
+    {
+        efxSource.PlayOneShot(startFire);
+        selectedTheme = fireplaceTheme;
+        themeSource.clip = selectedTheme;
+        themeSource.PlayDelayed(2.0f);
+        themeSource.volume = 0.6f;
     }
 }

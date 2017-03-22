@@ -39,6 +39,11 @@ public class Fader : MonoBehaviour
         BeginFade(-1);
     }
 
+    public void FadeIn()
+    {
+        BeginFade(-1);
+    }
+
     //public void OnLevelWasLoaded()
     //{
     //    // alpha = 1;

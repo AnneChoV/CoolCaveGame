@@ -47,6 +47,24 @@ public class CampDialogue : MonoBehaviour {
 
     public void StartFire()
     {
+        StartCoroutine(StartFireEnum());
+    }
+
+    public void StartFireSound()
+    {
+        soundManager.StartFire();
+    }
+
+    IEnumerator StartFireEnum()
+    {
+        float fadeTime = FindObjectOfType<Fader>().BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);
+
         SceneImage.GetComponent<Image>().sprite = FireImage;
+    }
+
+    public void FadeIn()
+    {
+        float fadeTime = FindObjectOfType<Fader>().BeginFade(-1);
     }
 }

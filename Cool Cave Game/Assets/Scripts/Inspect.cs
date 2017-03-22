@@ -49,7 +49,9 @@ public class Inspect : MonoBehaviour {
 
     public bool isInspecting;
     public bool isLogPickedUp;
+
     public GameObject InspectingUI;
+    public GameObject LogUI;
 
     // Use this for initialization
     void Start () {
@@ -86,6 +88,7 @@ public class Inspect : MonoBehaviour {
 
             playerInventory.AddWoodPieceToInventory();
 
+            LogUI.SetActive(true);
             InspectingUI.SetActive(false);
         }
 

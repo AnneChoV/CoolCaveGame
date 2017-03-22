@@ -1100,10 +1100,12 @@ MonoBehaviour:
   mainMenu: {fileID: 8300000, guid: ab4886fe3db41bc4b98597973a713143, type: 3}
   caveTheme: {fileID: 8300000, guid: 5aba8feec8c96434f86e0efc3b30a7cf, type: 3}
   fireplaceTheme: {fileID: 8300000, guid: ae006587d10497d41b1c0bad7587833b, type: 3}
+  fireplace: {fileID: 0}
   rockFall: {fileID: 8300000, guid: 53dfc4442250eee42957de218923d385, type: 3}
   rockFall2: {fileID: 8300000, guid: a2cf9e8368175c44092f28bfdc988ac7, type: 3}
   bagSearch: {fileID: 8300000, guid: 1d6f3b89a5334af49b8d8b971c84a1f6, type: 3}
   punch: {fileID: 8300000, guid: c36903d0c1c09d849a760c51f478e886, type: 3}
+  startFire: {fileID: 8300000, guid: 18c05090a8485f94d80b082d4ef291e0, type: 3}
 --- !u!114 &302995757
 MonoBehaviour:
   m_ObjectHideFlags: 0
