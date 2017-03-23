@@ -26,8 +26,7 @@ public class CampDialogue : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.P))
         {
             flowChart.SetBooleanVariable("Intervene", true);
-        }
-        
+        }     
 	}
 
     public void IntroDone()
@@ -35,6 +34,10 @@ public class CampDialogue : MonoBehaviour {
         sceneChanger.SceneLoad("PrototypeCave");
     }
 
+    public void DiggingSound()
+    {
+        soundManager.Digging();
+    }
     public void BagSearch()
     {
         soundManager.BagSearch();
@@ -66,5 +69,10 @@ public class CampDialogue : MonoBehaviour {
     public void FadeIn()
     {
         float fadeTime = FindObjectOfType<Fader>().BeginFade(-1);
+    }
+
+    public void QuitGame()
+    {
+        sceneChanger.ExitButton();
     }
 }

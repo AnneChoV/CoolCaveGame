@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip bagSearch;
     public AudioClip punch;
     public AudioClip startFire;
+    public AudioClip digging;
 
 
     private AudioClip selectedTheme;
@@ -33,7 +34,7 @@ public class SoundManager : MonoBehaviour
             selectedTheme = mainMenu;
         }
 
-        if (SceneManager.GetActiveScene().name == "AnneCave")
+        if (SceneManager.GetActiveScene().name == "PrototypeCave")
         {
             selectedTheme = caveTheme;
         }
@@ -69,7 +70,7 @@ public class SoundManager : MonoBehaviour
 
     public void playTheme(string sceneName)
     {
-        if (sceneName == "AnneCave")
+        if (sceneName == "PrototypeCave")
         {
             selectedTheme = caveTheme;
             themeSource.PlayOneShot(selectedTheme);
@@ -94,9 +95,13 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void Digging()
+    {
+        efxSource.PlayOneShot(digging);
+    }
     public void BagSearch()
     {
-        efxSource.PlayOneShot(bagSearch, 1.6f);
+        efxSource.PlayOneShot(bagSearch, 1.9f);
     }
 
     public void Punch()

@@ -14,10 +14,11 @@ public class ItemIndicator : MonoBehaviour
     public Transform m_Player;
 
     public bool m_IndicatorsEnabled = true;
-
     public GameObject helptext;
+    public GameObject LeftClickA;
 
     Inspect inspect;
+    Player player;
 
     // Use this for initialization
     void Awake()
@@ -29,6 +30,7 @@ public class ItemIndicator : MonoBehaviour
         }
 
         inspect = FindObjectOfType<Inspect>();
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -36,13 +38,16 @@ public class ItemIndicator : MonoBehaviour
     {
         bool inProximity = Vector3.Distance(m_Player.position, transform.position) < m_ProximityRange;
 
-        if (inProximity && !inspect.isInspecting)
+        if (inProximity && !inspect.isInspecting && player.raycastHit)
         {
-            helptext.SetActive(true);
+            helptext.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+            LeftClickA.GetComponent<TextFadeLerp>().TextLerpToOpaque();
         }
         else
         {
-            helptext.SetActive(false);
+            //helptext.SetActive(false);
+            helptext.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+            LeftClickA.GetComponent<TextFadeLerp>().TextLerpToInvisible();
         }
 
         m_CloseIndicator.localScale = Vector3.Lerp(m_CloseIndicator.localScale, Vector3.one * (inProximity && m_IndicatorsEnabled ? 1.0f : 0.0f), m_ScaleLerpSpeed * Time.deltaTime);

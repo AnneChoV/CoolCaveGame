@@ -7,9 +7,10 @@ public class TriggerScript : MonoBehaviour {
     SceneChanger sceneChanger;
     Inspect inspect;
     public GameObject helpText;
+    public GameObject LeftClick;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         sceneChanger = FindObjectOfType<SceneChanger>();
         inspect = FindObjectOfType<Inspect>();
 	}
@@ -23,7 +24,8 @@ public class TriggerScript : MonoBehaviour {
     {
         if (other.gameObject.name == "CharacterController" && inspect.isLogPickedUp == true)
         {
-            helpText.SetActive(true);
+            helpText.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+            LeftClick.GetComponent<TextFadeLerp>().TextLerpToOpaque();
             if (Input.GetMouseButtonDown(0))
             {
                 sceneChanger.SceneLoad("Test_Campfire");
@@ -35,7 +37,8 @@ public class TriggerScript : MonoBehaviour {
     {
         if (other.gameObject.name == "CharacterController" && inspect.isLogPickedUp == true)
         {
-            helpText.SetActive(false);
+            helpText.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+            LeftClick.GetComponent<TextFadeLerp>().TextLerpToInvisible();
         }
     }
 

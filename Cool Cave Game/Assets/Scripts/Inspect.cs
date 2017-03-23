@@ -50,8 +50,20 @@ public class Inspect : MonoBehaviour {
     public bool isInspecting;
     public bool isLogPickedUp;
 
-    public GameObject InspectingUI;
+    public GameObject WASDtext;
+    public GameObject DropIt;
+    public GameObject TakeIt;
+    public GameObject WASD;
+    public GameObject W;
+    public GameObject S;
+    public GameObject A;
+    public GameObject D;
+    public GameObject LeftClick;
+    public GameObject RightClick;
+
+
     public GameObject LogUI;
+
 
     // Use this for initialization
     void Start () {
@@ -88,8 +100,8 @@ public class Inspect : MonoBehaviour {
 
             playerInventory.AddWoodPieceToInventory();
 
-            LogUI.SetActive(true);
-            InspectingUI.SetActive(false);
+            LogUI.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+            LerpFadeOff();
         }
 
         //Setting the object as the current object.
@@ -153,6 +165,7 @@ public class Inspect : MonoBehaviour {
     private void FindNewItem()
     {
         currentItem = player.FindObjectInFrontOfPlayer();
+
         if (currentItem != null)    //This is needed in case the player misses their pick up. 
         {
             blurCurrentLerpSpeed = 0.0f;
@@ -171,11 +184,10 @@ public class Inspect : MonoBehaviour {
 
                 Debug.Log(currentItemsOriginalOutlineWidth + "this");
                 //currentItem.layer = LayerMask.NameToLayer("PickupLayer");
-                blurRenderer.material.SetFloat("_BlurSamples", currentBlurAmount);
-
-                
+                blurRenderer.material.SetFloat("_BlurSamples", currentBlurAmount);                
             }
-            InspectingUI.SetActive(true);
+
+            LerpFadeOn();
         }
     }
 
@@ -197,7 +209,7 @@ public class Inspect : MonoBehaviour {
         currentItem = null;
         isInspecting = false;
 
-        InspectingUI.SetActive(false);
+        LerpFadeOff();
     }
 
     private void ProcessInteractionsWithObject()    //I need the players hand to set the rotation locks correctly.
@@ -240,6 +252,34 @@ public class Inspect : MonoBehaviour {
             }
             currentItem.transform.Rotate(0.0f, 0.0f, -Time.deltaTime * 100);
         }
+    }
+
+    public void LerpFadeOn()
+    {
+        WASDtext.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+        DropIt.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+        TakeIt.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+        WASD.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+        W.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+        S.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+        A.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+        D.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+        LeftClick.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+        RightClick.GetComponent<TextFadeLerp>().TextLerpToOpaque();
+    }
+
+    public void LerpFadeOff()
+    {
+        WASDtext.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+        DropIt.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+        TakeIt.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+        WASD.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+        W.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+        S.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+        A.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+        D.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+        LeftClick.GetComponent<TextFadeLerp>().TextLerpToInvisible();
+        RightClick.GetComponent<TextFadeLerp>().TextLerpToInvisible();
     }
 }
 
