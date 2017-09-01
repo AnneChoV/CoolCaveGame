@@ -1,4 +1,6 @@
-﻿//
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+//
 // HexBokeh - A Fast DOF Shader With Hexagonal Apertures
 //
 // Copyright (C) 2014 Keijiro Takahashi
@@ -114,7 +116,7 @@ Shader "Hidden/HexBokeh"
     {
         v2f_blur o;
 
-        o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+        o.pos = UnityObjectToClipPos(v.vertex);
 
         float4 uv = v.texcoord.xyxy;
         float4 d = _MainTex_TexelSize.xyxy * _BlurDisp;
